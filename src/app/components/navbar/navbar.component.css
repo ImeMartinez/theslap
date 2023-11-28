@@ -1,0 +1,84 @@
+.container-navbar{
+    margin: 0;
+    padding: 0;
+
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    height: 130px;
+    justify-content: center;
+    align-items: center;
+   background-color: white;
+}
+.logo-image{
+    width: 300px;
+    position: absolute;
+    z-index: 1;
+
+}
+.img-container{
+    height: 100px;
+}
+.main-actions{
+    display: flex;
+    height: 60px;
+    width: 77%;
+    background-color:  white;
+    border-radius: 0px 50px 50px 0px;
+    margin-left: 300px;
+
+}
+
+.search-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-buttons{
+    background-color: white;
+    border: none;
+    width: 100px;
+    text-align: center;
+    color: gray;
+    font-weight: bold;
+    font-size: medium;
+    border: none;
+}
+
+.search-button{
+    background-color: white;
+    width: 100px;
+    height: 60px;
+    border: none;
+    color: gray;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.input-field{
+    display: block;
+    width: 200px;
+    height: 45px;
+    border-radius: 50px;
+    position: absolute;
+    font-size: medium;
+    border-color: grey;
+    background-color: white;
+    padding: 10px;
+
+}
+
+.go-button{
+    border-radius: 50px;
+    height: 45px;
+    width: 45px;
+    border-color: red;
+    font-size: medium;
+    color: purple;
+    font-weight: bold;
+    position: relative;
+    left: 155px;
+}

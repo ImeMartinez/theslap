@@ -1,0 +1,8 @@
+.middle-section-container{
+    display: flex;
+    justify-content: center;
+}
+.last-section-container{
+    display: flex;
+    justify-content: center;
+}

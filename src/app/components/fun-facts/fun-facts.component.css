@@ -1,0 +1,19 @@
+.section-container{
+    width: 900px;
+    margin-top: 15px;
+}
+
+.title{
+    background-color: #FDE74C;
+    width: 200px;
+    padding: 15px;
+    border-radius: 15px 15px 0px 0px;
+
+}
+
+.fact-text{
+    background-color: #84BCDA;
+    height: 80px;
+    padding: 15px;
+    border-radius: 0px 15px 15px 15px;
+}
