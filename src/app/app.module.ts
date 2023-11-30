@@ -4,27 +4,35 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { TheRightNowComponent } from './components/the-right-now/the-right-now.component';
-import { TheNewStuffComponent } from './components/the-new-stuff/the-new-stuff.component';
-import { HotPagesComponent } from './components/hot-pages/hot-pages.component';
-import { FunFactsComponent } from './components/fun-facts/fun-facts.component';
-import { HeroBannerComponent } from './components/hero-banner/hero-banner.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SignInFormComponent } from './sign-in/components/sign-in-form/sign-in-form.component';
+import { HomePageModule } from './home.module';
+import { SignInPage } from './sign-in/sign-in.page';
+import { SignInModule } from './sign-in.module';
+import { RegisterModule } from './register.module';
+import { PicsModule } from './pics.module';
+import { ClipsModule } from './clips.module';
+import { ProfilesModule } from './profiles.module';
+import { TunesModule } from './tunes.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    TheRightNowComponent,
-    TheNewStuffComponent,
-    HotPagesComponent,
-    FunFactsComponent,
-    HeroBannerComponent,
     FooterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HomePageModule,
+    AppRoutingModule,
+    SignInModule,
+    RegisterModule,
+    PicsModule,
+    ClipsModule,
+    ProfilesModule,
+    TunesModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
