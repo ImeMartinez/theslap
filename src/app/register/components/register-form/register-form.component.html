@@ -18,7 +18,7 @@
         <label class="labels" for="confirmPassword"><b>Verify password</b></label>
         <input class="inputs" type="password" placeholder="Enter password" id="confirmPassword" name="password2"
           required [(ngModel)]="password2">
-        <button class="register-button" type="submit">Register</button>
+        <button class="register-button" type="submit" (click)="registerUser()">Register</button>
         <label class="labels">
           <input type="checkbox" checked="checked" name="remember"> Remember me
         </label>
