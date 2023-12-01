@@ -1,28 +1,33 @@
 <div class="section-container">
-    <div class="form" >
-        <h1>Register</h1>
-        <form action="">
-            <div class="form-container">
-                <label class="labels" for="name"><b>Name</b></label>
-                <input class="inputs" type="text" name="name" id="name" placeholder="Enter your name" required>
-                <label class="labels" for="lastname"><b>Last Name</b></label>
-                <input class="inputs" type="text" name="lastname" id="lastname" placeholder="Enter your last name" required>
-                <label class="labels" for="email"><b>Email</b></label>
-                <input class="inputs" type="text" name="email" id="email" placeholder="example@email.com" required>
-                <label class="labels"for="psw"><b>Password</b></label>
-                <input class="inputs" type="password" placeholder="Enter password" name="psw" required>
-                <label class="labels" for="psw2"><b>Verify password</b></label>
-                <input class="inputs" type="password" placeholder="Enter password" name="psw2" required>
-                <button class="register-button" type="submit">Register</button>
-                <label class="labels">
-                    <input type="checkbox" checked="checked" name="remember"> Remember me
-                </label>
-            </div>
-            <div class="bottom-container">   
-                <span>Already an account?<a routerLink="./../sign-in" routerLinkActive="active">Here</a></span>
-            </div>
-        </form>
-    </div>
-    
-</div>
+  <div class="form">
+    <h1>Register</h1>
+    <form action="">
+      <div class="form-container">
+        <label class="labels" for="name"><b>Name</b></label>
+        <input class="inputs" type="text" name="name" id="name" placeholder="Enter your name" required
+          [(ngModel)]="name">
+        <label class="labels" for="lastname"><b>Last Name</b></label>
+        <input class="inputs" type="text" name="lastname" id="lastname" placeholder="Enter your last name" required
+          [(ngModel)]="lastName">
+        <label class="labels" for="email"><b>Email</b></label>
+        <input class="inputs" type="email" name="email" id="email" placeholder="example@email.com" required
+          [(ngModel)]="email">
+        <label class="labels" for="password"><b>Password</b></label>
+        <input class="inputs" type="password" placeholder="Enter password" id="password" name="password" required
+          [(ngModel)]="password">
+        <label class="labels" for="confirmPassword"><b>Verify password</b></label>
+        <input class="inputs" type="password" placeholder="Enter password" id="confirmPassword" name="password2"
+          required [(ngModel)]="password2">
+        <button class="register-button" type="submit">Register</button>
+        <label class="labels">
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+      </div>
+      <div class="bottom-container">
+        <span>Already an account?{{ "  " }}<a routerLink="./sign-in"
+            routerLinkActive="active">Here</a></span>
+      </div>
+    </form>
+  </div>
 
+</div>

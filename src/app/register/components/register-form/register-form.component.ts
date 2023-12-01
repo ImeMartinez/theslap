@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./register-form.component.css']
 })
 export class RegisterFormComponent {
+  name:string = '';
+  lastName:string = '';
+  email:string = '';
+  password:string = '';
+  password2:string = '';
+  verifyPassword:string = '';
+
 
 }

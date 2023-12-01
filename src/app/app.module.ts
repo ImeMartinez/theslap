@@ -6,14 +6,14 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SignInFormComponent } from './sign-in/components/sign-in-form/sign-in-form.component';
-import { HomePageModule } from './home.module';
+import { HomePageModule } from './home/home.module';
 import { SignInPage } from './sign-in/sign-in.page';
-import { SignInModule } from './sign-in.module';
-import { RegisterModule } from './register.module';
-import { PicsModule } from './pics.module';
-import { ClipsModule } from './clips.module';
-import { ProfilesModule } from './profiles.module';
-import { TunesModule } from './tunes.module';
+import { SignInModule } from './sign-in/sign-in.module';
+import { RegisterModule } from './register/register.module';
+import { PicsModule } from './pics/pics.module';
+import { ClipsModule } from './clips/clips.module';
+import { ProfilesModule } from './profiles/profiles.module';
+import { TunesModule } from './tunes/tunes.module';
 
 @NgModule({
   declarations: [
