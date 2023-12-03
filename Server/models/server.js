@@ -10,6 +10,7 @@ class Server {
 
         this.usersPath = "/api/users";
         this.followersPath = "/api/followers";
+        this.postsPath = "/api/posts";
         this.connect = process.env.CONNECTION
         this.authPath = "/api/auth";
 
@@ -26,6 +27,7 @@ class Server {
         this.app.use(this.authPath, require("../routes/auth"));
         this.app.use(this.usersPath, require("../routes/users"));
         this.app.use(this.followersPath, require("../routes/followers"));
+        this.app.use(this.postsPath, require("../routes/posts"));
 
         this.app.get("/*", (req, res) => {
             res.status(404).send("404 Not Found");

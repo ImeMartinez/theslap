@@ -10,14 +10,14 @@
       <div class="post">
         <div class="nombre">{{ currentUserData.name + " " + currentUserData.lastName }}
         </div>
-        <textarea rows="50" cols="10" class="status" placeholder="How r u feelin'?"></textarea>
+        <textarea rows="50" cols="10" class="status" [(ngModel)]="post.body" placeholder="How r u feelin'?"></textarea>
         <div class="feelingContent">
           <div class="feeling">Feeling:</div>
           <ngx-emoji style="margin-left: auto;" [emoji]="emojiSelected" (emojiClick)="handleShowEmojis()" [size]="32">
           </ngx-emoji>
           <button class="emoji" (click)="handleShowEmojis()">Publish</button>
         </div>
-        <input type="text" placeholder="FEELING" class="feelingInput">
+        <input type="text" placeholder="FEELING" class="feelingInput" [(ngModel)]="post.feeling">
       </div>
     </div>
     <emoji-mart class="emoji-mart" *ngIf="showEmojis" (emojiClick)="handleEmojiSelect($event)" title="Pick your emoji…"

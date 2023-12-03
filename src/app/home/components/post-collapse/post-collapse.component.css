@@ -55,7 +55,7 @@
     margin: auto auto auto 0px;
     border-radius: 15px;
     border: 2px solid rgb(251, 55, 124);
-    background-color: rgb(167, 216, 240);
+    background: linear-gradient(180deg, rgb(216, 229, 236), rgb(167, 216, 240));
     overflow: hidden;
 }
 

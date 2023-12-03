@@ -1,7 +1,7 @@
-import { Token } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { User } from 'src/app/interfaces/user.interface';
 import { UsersService } from 'src/app/services/user.service';
+import { Post } from 'src/app/interfaces/post.interface';
 
 @Component({
   selector: 'app-post-collapse',
@@ -9,19 +9,19 @@ import { UsersService } from 'src/app/services/user.service';
   styleUrls: ['./post-collapse.component.css']
 })
 export class PostCollapseComponent {
-
+  
   emojiSelected: any = {
     id: 'smiley',
-    name: 'Smiling Face with Open Mouth',
-    colons: ':smiley:',
-    text: ':)',
-    emoticons: [
-      '=)',
-      '=-)'
-    ],
-    skin: null,
-    native: '😃'
   }
+
+  post: Post = {
+    user: "",
+    body: "",
+    feeling: "",
+    emoji: this.emojiSelected,
+  }
+
+
   showEmojis: boolean = false;
   email:string = "";
   
@@ -34,6 +34,7 @@ export class PostCollapseComponent {
       return;
     }
     this.getUserData();
+    this.post.user = this.email;
 
   }
 
@@ -58,6 +59,8 @@ export class PostCollapseComponent {
   }
 
   handleEmojiSelect(event: any) {
+    this.post.emoji.id = event.emoji.id;
+    console.log(this.post);
     this.emojiSelected = event.emoji;
   }
 }
