@@ -7,15 +7,27 @@ import { Component } from '@angular/core';
 })
 export class PostCollapseComponent {
 
-  emojiSelected: any;
+  emojiSelected: any = {
+    id: 'smiley',
+    name: 'Smiling Face with Open Mouth',
+    colons: ':smiley:',
+    text: ':)',
+    emoticons: [
+      '=)',
+      '=-)'
+    ],
+    skin: null,
+    native: '😃'
+  }
+  showEmojis: boolean = false;
   
   constructor() { 
   }
 
   toggled: boolean = false;
-  
-  handleSelection(event: any) {
-    console.log(event.char);
+
+  handleShowEmojis() {
+    this.showEmojis = !this.showEmojis;
   }
 
   handleEmojiSelect(event: any) {

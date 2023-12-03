@@ -10,6 +10,9 @@ import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 import { RouterModule } from '@angular/router';
+import { EmojiComponent } from '@ctrl/ngx-emoji-mart/ngx-emoji';
+import { EmojiModule } from '@ctrl/ngx-emoji-mart/ngx-emoji';
+import { PickerModule } from '@ctrl/ngx-emoji-mart';
 
 
 @NgModule({
@@ -27,6 +30,9 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     HttpClientModule,
     FormsModule,
+    EmojiModule,
+    PickerModule,
+    EmojiComponent
 
   ],
   exports:[
