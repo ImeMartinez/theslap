@@ -1,0 +1,100 @@
+.collapseContent {
+    display: flex;
+    margin: auto;
+    width: 95%;
+    height: 125px;
+    margin-top: 30px;
+    border-radius: 15px;
+}
+
+.profileImage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75px;
+    height: 100px;
+    border-radius: 15px 0px 0px 15px;
+    overflow: hidden;
+    margin: auto 0px auto auto;
+    background-color: rgb(251, 55, 124);
+}
+
+.image-container {
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 2.5px;
+    background-color: royalblue;
+}
+
+.picture {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+.update {
+    font-weight: bold;
+    color: yellow;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 125px;
+    margin: auto auto auto 0px;
+    border-radius: 15px;
+    border: 2px solid rgb(251, 55, 124);
+    background-color: rgb(167, 216, 240);
+    overflow: hidden;
+}
+
+.nombre {
+    font-weight: bold;
+    color: rgb(37, 32, 163);
+    margin: 5px 0px 0px 5px;
+    font-size: larger;
+    text-transform: uppercase;
+}
+
+.status {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 5px;
+}
+
+.feeling {
+    background-color: transparent;
+    padding: 5px;
+    font-size: smaller;
+    color: rgb(201, 55, 67);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.feelingInput {
+    background-color: rgb(112, 207, 244);
+    border: none;
+    outline: none;
+    padding: 5px;
+    color: rgb(175, 75, 255);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.feelingContent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.emoji {
+    margin-right: 20px;
+}
+
+.emoji-mart-anchor {
+    display: none;
+}

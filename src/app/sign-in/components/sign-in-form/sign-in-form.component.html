@@ -4,10 +4,12 @@
     <form action="">
       <div class="form-container">
         <label class="labels" for="email"><b>Email</b></label>
-        <input class="inputs" type="text" name="email" id="email" placeholder="example@email.com" required>
-        <label class="labels" for="psw"><b>Password</b></label>
-        <input class="inputs" type="password" placeholder="Enter Password" name="psw" required>
-        <button class="login-button" type="submit">Login</button>
+        <input class="inputs" type="email" name="email" id="email" placeholder="example@email.com" required
+          [(ngModel)]="email">
+        <label class="labels" for="password"><b>Password</b></label>
+        <input class="inputs" type="password" placeholder="Enter Password" name="password" required
+          [(ngModel)]="password">
+        <button class="login-button" type="submit" (click)="signIn()">Login</button>
         <label class="labels">
           <input type="checkbox" checked="checked" name="remember"> Remember me
         </label>

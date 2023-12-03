@@ -1,8 +1,10 @@
 const Router = require('express');
-const { usersGet, userPost, userDelete, userPut, userPatch } = require('../controllers/users');
+const { usersGet, userPost, userDelete, userPut, userPatch, userExsit } = require('../controllers/users');
 const router = Router();
 
 router.get("/", usersGet);
+
+router.get("/:email", userExsit);
 
 router.post("/", userPost);
 

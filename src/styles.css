@@ -1,8 +1,22 @@
 @import '~sweetalert2/dist/sweetalert2.css';
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Candara, sans-serif !important;
+}
+
+body {
+    background: linear-gradient(45deg, rgb(7, 45, 103), rgb(107, 66, 235), rgb(235, 10, 235), rgb(235, 10, 8));
+    background-size: 1200% 100%;
+    animation: bg-pan-left 30s infinite alternate-reverse both;
+}
+
+@keyframes bg-pan-left {
+    0% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }

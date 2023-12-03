@@ -13,33 +13,48 @@ export class RegisterFormComponent {
   email:string = '';
   password:string = '';
   password2:string = '';
-  verifyPassword:string = '';
-
   constructor(private userService:UsersService) { 
 
   }
   
   public registerUser():void{
-    if(this.password !== this.password2){
-      Swal.fire({title: "Error", text: "Las contraseñas no coinciden", icon: "error", confirmButtonText: "Ok"})
+
+    if(this.password != this.password2){
+      Swal.fire({title: "Error", text: "Las contraseñas no coinciden", icon: "error", confirmButtonText: "Ok"}).then(() => {
+        return;
+      });
     }
+    else if(this.name == "" || this.lastName == '' || this.email == '' || this.password == '' || this.password2 == ''){
+      Swal.fire({title: "Error", text: "Todos los campos son obligatorios", icon: "error", confirmButtonText: "Ok"}).then(() => {
+        return
+      });
+    }
+    else{
+
     const user:User = {
       name: this.name,
       lastName: this.lastName,
       email: this.email,
-      password: this.password
+      password: this.password,
+      image: "https://as1.ftcdn.net/v2/jpg/03/39/45/96/1000_F_339459697_XAFacNQmwnvJRqe1Fe9VOptPWMUxlZP8.jpg"
     }
     this.userService.registerUser(user).subscribe({
       next: (response: any) => {
-        Swal.fire({title: "Success", text: "Usuario registrado correctamente", icon: "success", confirmButtonText: "Ok"})
+        if(response.error){
+          Swal.fire({title: "Error", text: response.error, icon: "error", confirmButtonText: "Ok"}).then(() => {
+            return;
+          });
+        
+        }
+        else{
+        Swal.fire({title: "Success", text: "Usuario registrado correctamente", icon: "success", confirmButtonText: "Ok"}).then(() => {
+          window.localStorage.setItem("Authorization", response.token);
+          window.location.href = "/";
+        });}
       },
       error: (error) => {
         console.log(error);
       }
     });
-  }
+  }}
 }
-function showAlert() {
-  throw new Error('Function not implemented.');
-}
-

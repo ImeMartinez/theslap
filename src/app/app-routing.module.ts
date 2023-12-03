@@ -15,7 +15,7 @@ const routes: Routes = [
   {path:"sign-in", component: SignInPage},
   {path:"register", component: RegisterPage},
   {path:"pics", component: PicsPage},
-  {path:"profiles", component: ProfilesPage},
+  {path:"profiles/:searchTerm", component: ProfilesPage},
   {path:"tunes", component: TunesPage},
   {path:"clips", component: ClipsPage}
 ];

@@ -1,0 +1,99 @@
+.list-container {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    margin: 20px auto;
+    background-color: #99c9e3;
+    padding: 20px 0;
+}
+
+.profile {
+    width: 85%;
+    display: flex;
+    margin: 10px auto;
+    height: 75px;
+    justify-content: space-between;
+    border-radius: 25px;
+    color: white;
+    background-color: #A790A5;
+    border: 2px solid #978095;
+}
+
+.content {
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.image-container {
+    width: 55px;
+    height: 55px;
+    margin-left: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    object-position: center;
+}
+
+.name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+    width: auto;
+}
+
+.follow {
+    width: 35%;
+    height: 35px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-right: 10px;
+    outline: none;
+    border-radius: 50px;
+    margin-left: auto;
+    background-color: orange;
+    color: white;
+    border: none;
+    transition: ease-in-out 200ms;
+}
+
+.follow:hover {
+    background-color: mediumseagreen;
+    scale: 1.05;
+}
+
+.unfollow {
+    width: 35%;
+    height: 35px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-right: 10px;
+    outline: none;
+    border-radius: 50px;
+    margin-left: auto;
+    background-color: indianred;
+    color: white;
+    border: none;
+    transition: ease-in-out 200ms;
+}
+
+.unfollow:hover {
+    background-color: red;
+    scale: 1.05;
+}

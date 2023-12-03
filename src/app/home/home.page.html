@@ -1,11 +1,12 @@
 <div>
-    <app-hero-banner></app-hero-banner>
+  <app-hero-banner></app-hero-banner>
 </div>
-<div class="middle-section-container" style="display: flex; justify-content: center;">
-    <div>
-        <app-the-new-stuff></app-the-new-stuff>
-        <app-fun-facts></app-fun-facts>
-    </div>
-    <app-the-right-now></app-the-right-now>
+<app-post-collapse *ngIf="islogged"></app-post-collapse>
+<div *ngIf="islogged" class="middle-section-container" style="display: flex; justify-content: center;">
+  <div>
+    <app-the-new-stuff></app-the-new-stuff>
+    <app-fun-facts></app-fun-facts>
+  </div>
+  <app-the-right-now></app-the-right-now>
 </div>
-<app-hot-pages></app-hot-pages>
+<app-hot-pages *ngIf="islogged"></app-hot-pages>

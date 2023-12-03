@@ -1,23 +1,21 @@
 <div class="container-navbar">
-  <div class="container">
-    <div class="img-container">
-      <img src="../../../assets/home-logo.webp" class="logo-image" alt="">
-    </div>
-    <div class="main-actions">
-      <button class="nav-buttons"><a routerLink="./home" routerLinkActive="active">HOME</a></button>
-      <button class="nav-buttons"><a routerLink="./profiles" routerLinkActive="active">PROFILES</a></button>
-      <button class="nav-buttons"><a routerLink="./clips" routerLinkActive="active">CLIPS</a></button>
-      <button class="nav-buttons"><a routerLink="./pics" routerLinkActive="active">PIX</a></button>
-      <button class="nav-buttons"><a routerLink="./tunes" routerLinkActive="active">TUNES</a></button>
-      <button class="nav-buttons"><a routerLink="./register" routerLinkActive="active">REGISTER</a></button>
-      <button class="nav-buttons"><a routerLink="./sign-in" routerLinkActive="active">LOG IN</a></button>
-      <div class="search-bar">
-        <button class="search-button">SEARCH</button>
-        <div>
-          <input type="text" class="input-field">
-          <button class="go-button">GO</button>
-        </div>
-      </div>
+  <div class="img-container">
+    <img src="../../../assets/home-logo.webp" class="logo-image" alt="">
+  </div>
+  <div class="main-actions">
+    <button class="nav-buttons" routerLink="./home" routerLinkActive="active">HOME</button>
+    <button class="nav-buttons" *ngIf="isLogged" (click)="profiles(false)" routerLinkActive="active">PROFILES</button>
+    <button class="nav-buttons" routerLink="./clips" routerLinkActive="active">CLIPS</button>
+    <button class="nav-buttons" routerLink="./pics" routerLinkActive="active">PIX</button>
+    <button class="nav-buttons" routerLink="./tunes" routerLinkActive="active">TUNES</button>
+    <button class="nav-buttons" *ngIf="!isLogged" routerLink="./register" routerLinkActive="active">REGISTER</button>
+    <button class="nav-buttons" *ngIf="!isLogged" routerLink="./sign-in" routerLinkActive="active">LOG
+      IN</button>
+    <button class="nav-buttons" *ngIf="isLogged" (click)="logout()">LOG OUT</button>
+    <div class="search-bar">
+      <span class="search-button">SEARCH</span>
+      <input type="text" class="input-field" [(ngModel)]="searchTerm">
+      <button class="go-button" (click)="profiles(true)">GO</button>
     </div>
   </div>
 </div>
