@@ -12,6 +12,8 @@ export class ProfilesListComponent implements OnInit{
   public currentUser = "";
   public searchTerm = "";
 
+  
+
   ngOnInit(): void {
     this.searchTerm = this.route.snapshot.params['searchTerm']
     this.getUsers();

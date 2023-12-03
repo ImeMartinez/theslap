@@ -8,6 +8,13 @@ export class UsersService {
 
   public users: User[] = [];
   public followingUsers: {follower:String, following: String}[] = [];
+  public currentUserData:User = {
+    name: "",
+    lastName: "",
+    email: "",
+    password: "",
+    image: "",
+  };
 
 
   constructor(private http : HttpClient){}
@@ -53,6 +60,10 @@ export class UsersService {
 
   unfollowUser(follower: string, following: string): Observable <any> {
     return this.http.delete(`http://localhost:8081/api/followers/${follower}/${following}`);
+  }
+
+  getUserData(email:string): Observable <any> {
+    return this.http.get(`http://localhost:8081/api/users/${email}`);
   }
     
 

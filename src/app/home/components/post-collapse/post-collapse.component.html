@@ -3,18 +3,19 @@
     <div class="collapseContent">
       <div class="profileImage">
         <div class="image-container">
-          <img class="picture"
-            src="https://static.wikia.nocookie.net/victorious/images/b/b4/PearPhone-horizontal.png/revision/latest/scale-to-width-down/1200?cb=20110825192536"
-            alt="">
+          <img class="picture" src="{{ currentUserData.image }}" alt="">
         </div>
         <div class="update">UPDATE</div>
       </div>
       <div class="post">
-        <div class="nombre">Nombre</div>
+        <div class="nombre">{{ currentUserData.name + " " + currentUserData.lastName }}
+        </div>
         <textarea rows="50" cols="10" class="status" placeholder="How r u feelin'?"></textarea>
         <div class="feelingContent">
           <div class="feeling">Feeling:</div>
-          <ngx-emoji [emoji]="emojiSelected" (emojiClick)="handleShowEmojis()" [size]="32"></ngx-emoji>
+          <ngx-emoji style="margin-left: auto;" [emoji]="emojiSelected" (emojiClick)="handleShowEmojis()" [size]="32">
+          </ngx-emoji>
+          <button class="emoji" (click)="handleShowEmojis()">Publish</button>
         </div>
         <input type="text" placeholder="FEELING" class="feelingInput">
       </div>

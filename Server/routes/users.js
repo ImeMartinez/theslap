@@ -8,6 +8,8 @@ router.get("/:email", userExsit);
 
 router.post("/", userPost);
 
+
+
 router.delete("/:id", userDelete);
 
 router.put("/:id", userPut);

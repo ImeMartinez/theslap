@@ -80,6 +80,7 @@ const userPost = (req = request, res = response) => {
 
 };
 
+
 const userDelete = (req, res = response) => {
     const id = req.params.id;
     res.status(200).json({
@@ -105,6 +106,8 @@ const userPatch = (req, res = response) => {
         msg: "Api PATCH users - controller"
     });
 };
+
+
 
 module.exports = {
     usersGet,
