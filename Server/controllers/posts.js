@@ -34,7 +34,22 @@ const postSomething = (req = request, res = response) => {
 
 };
 
+const getLastPost = (req = request, res = response) => {
+    Post.find().sort({ _id: -1 }).limit(1).then((result) => {
+        if (result) {
+            return res.status(200).json({
+                msg: "Post encontrado",
+                post: result
+            });
+        }
+    }).catch((error) => {
+        console.log(error);
+        res.status(500).json({ msg: "Error " });
+    });
+}
+
 
 module.exports = {
     postSomething,
+    getLastPost,
 }

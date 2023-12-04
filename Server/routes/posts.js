@@ -1,8 +1,10 @@
 const Router = require('express');
-const { postSomething } = require('../controllers/posts');
+const { postSomething, getLastPost } = require('../controllers/posts');
 const router = Router();
 
 router.post("/", postSomething);
+
+router.get("/last", getLastPost);
 
 
 

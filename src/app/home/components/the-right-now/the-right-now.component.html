@@ -1,25 +1,24 @@
 <div class="section-container">
-    <img src= "../../../assets/the-right-now-img.png" class="head-img" >
-    <div>
-        <div class="userinfo">
-            <img src="../../../assets/example-user.jpeg" class="user-img" alt="">
-            <div class="user-data">
-                <p class="date">06 de noviembre de 2023 8:25 pm</p>
-                <p class="username">Tori's</p>
-                <p class="update">Newest Update:</p>
-            </div>
-        </div>
-        <div class="post-info">
-            <p class="post">Lorem ipsum dolor sit amet consectetur 
-                adipisicing elit. Itaque voluptates, accusamus numquam
-                 non repellat quasi deserunt ullam ab quo quod nulla 
-                 inventore accusantium, architecto at minus aperiam omnis 
-                 aspernatur ea.
-            </p>
-        </div>
-        <div class="mood-container">
-            <p class="mood-title">Mood = </p>
-            <p class="mood">lucky</p>
-        </div>
+  <img src="../../../assets/the-right-now-img.png" class="head-img">
+  <div>
+    <div class="userinfo">
+      <img src="{{ currentUserData.image }}" class="user-img" alt="">
+      <div class="user-data">
+        <p class="date">06 de noviembre de 2023 8:25 pm</p>
+        <p class="username">{{ currentUserData.name }}'s</p>
+        <p class="update">Newest Update:</p>
+      </div>
     </div>
+    <div class="post-info">
+      <p class="post">
+        {{ lastPost.body }}
+      </p>
+    </div>
+    <div class="mood-container">
+      <p class="mood-title">Mood = </p>
+      <p class="mood">{{ lastPost.feeling }}
+        <ngx-emoji [emoji]="lastPost.emoji.id"></ngx-emoji>
+      </p>
+    </div>
+  </div>
 </div>
