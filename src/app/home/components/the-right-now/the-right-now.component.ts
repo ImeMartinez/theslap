@@ -26,8 +26,8 @@ export class TheRightNowComponent {
   getLastPost(): void {
     this.postsService.getLastPost().subscribe({
       next: (response: any) => {
-        console.log(response);
         this.postsService.lastPost = response.post[0];
+        this.getUserData();
       },
       error: (error) => {
         console.log(error);
@@ -36,8 +36,10 @@ export class TheRightNowComponent {
   }
 
   getUserData(): void {
+    console.log(this.lastPost.user);
     this.usersService.getUserData(this.lastPost.user).subscribe({
       next: (response: any) => {
+        console.log(response);
         this.usersService.currentUserData = response.user;
       },
       error: (error) => {
