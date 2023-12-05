@@ -1,0 +1,167 @@
+.section-container {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+}
+
+.profile-info {
+    width: 25%;
+    height: auto;
+    border-radius: 15px;
+    border: 3px solid #DD1166;
+    text-align: center;
+    background: linear-gradient(180deg, rgb(216, 229, 236), rgb(167, 216, 240));
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 20px;
+}
+
+.imgContainer {
+    margin: 10px auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #DD1166;
+    overflow: hidden;
+}
+
+.postPicture {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.name {
+    font-weight: bold;
+    color: rgb(37, 32, 163);
+    margin: 5px 0px 0px 5px;
+    font-size: larger;
+    text-transform: uppercase;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+.button {
+    width: 150px;
+    height: 50px;
+    border-radius: 50px;
+    font-size: large;
+    background-color: #5E239D;
+    color: white;
+    border: none;
+}
+
+.follow {
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-right: auto;
+    outline: none;
+    border-radius: 50px;
+    margin-left: auto;
+    background-color: orange;
+    color: white;
+    border: none;
+    transition: ease-in-out 200ms;
+    margin-bottom: 10px;
+}
+
+.follow:hover {
+    background-color: mediumseagreen;
+    scale: 1.05;
+}
+
+.unfollow {
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-right: auto;
+    outline: none;
+    border-radius: 50px;
+    margin-left: auto;
+    background-color: indianred;
+    color: white;
+    border: none;
+    transition: ease-in-out 200ms;
+    margin-bottom: 10px;
+}
+
+.unfollow:hover {
+    background-color: red;
+    scale: 1.05;
+}
+
+.publications-section {
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+    margin-left: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.publication {
+    background: linear-gradient(180deg, rgb(216, 229, 236), rgb(167, 216, 240));
+    border: 3px solid #DD1166;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.postInfo {
+    display: flex;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.feeling {
+    background-color: transparent;
+    padding: 10px;
+    font-size: smaller;
+    color: rgb(201, 55, 67);
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.mood {
+    background-color: rgb(112, 207, 244);
+    padding: 10px 10px 0px 10px;
+    color: rgb(175, 75, 255);
+    text-transform: uppercase;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+p {
+    padding: 5px 5px 0px 10px;
+}
+
+.emoji {
+    margin-right: 20px;
+    margin-top: 5px;
+    margin-bottom: auto;
+    margin-left: auto;
+}

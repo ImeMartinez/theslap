@@ -1,6 +1,6 @@
 <div class="list-container">
   <div class="profile" *ngFor="let user of users">
-    <div class="content">
+    <div class="content" (click)="visitProfile(user.email)">
       <div class="image-container">
         <img src="{{ user.image }}" alt="">
       </div>

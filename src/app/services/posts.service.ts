@@ -16,6 +16,16 @@ export class postsService {
   
   };
 
+  public userPosts: Post[] = [{
+      user: "",
+      body: "",
+      feeling: "",
+      emoji: {
+        id: "",
+      },
+    }
+  ];
+
   constructor(private http : HttpClient){}
 
   postSomething(post : Post): Observable <any> {
@@ -28,6 +38,10 @@ export class postsService {
     return this.http.get("http://localhost:8081/api/posts/last");
   }
   
+
+  getUserPosts(email: string): Observable <any> {
+    return this.http.get(`http://localhost:8081/api/posts/${email}`);
+  }
     
 
 }

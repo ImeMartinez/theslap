@@ -48,8 +48,25 @@ const getLastPost = (req = request, res = response) => {
     });
 }
 
+const getUserPost = (req = request, res = response) => {
+    const email = req.params.email;
+    Post.find({ user: email }).sort({ _id: -1 }).then((result) => {
+        if (result) {
+            return res.status(200).json({
+                msg: "Post encontrado",
+                post: result
+            });
+        }
+    }).catch((error) => {
+        console.log(error);
+        res.status(500).json({ msg: "Error " });
+    });
+
+}
+
 
 module.exports = {
     postSomething,
     getLastPost,
+    getUserPost
 }

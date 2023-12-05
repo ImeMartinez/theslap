@@ -2,21 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { ProfilesListComponent } from './components/profiles-list/profiles-list.component';
-import { ProfilesPage } from './profiles.page';
-import { Router } from '@angular/router';
-
-
+import { ProfilePage } from './profile.page';
+import { ProfileEditionComponent } from './components/profile-edition/profile-edition.component';
+import { EmojiComponent } from '@ctrl/ngx-emoji-mart/ngx-emoji';
 
 @NgModule({
   declarations: [
-    ProfilesListComponent,
-    ProfilesPage,
+    ProfilePage,
+    ProfileEditionComponent,
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     FormsModule,
+    EmojiComponent
   ]
 })
-export class ProfilesModule { }
+export class ProfileModule { }

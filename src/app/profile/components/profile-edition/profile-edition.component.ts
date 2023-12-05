@@ -2,24 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/interfaces/user.interface';
 import { UsersService } from 'src/app/services/user.service';
+import { Post } from 'src/app/interfaces/post.interface';
+import { postsService } from 'src/app/services/posts.service';
 @Component({
-  selector: 'app-profiles-list',
-  templateUrl: './profiles-list.component.html',
-  styleUrls: ['./profiles-list.component.css']
+  selector: 'app-profile-edition',
+  templateUrl: './profile-edition.component.html',
+  styleUrls: ['./profile-edition.component.css']
 })
-export class ProfilesListComponent implements OnInit{
-
+export class ProfileEditionComponent {
   public currentUser = "";
-  public searchTerm = "";
-
-  
+  public profileUser = "";
 
   ngOnInit(): void {
-    this.searchTerm = this.route.snapshot.params['searchTerm']
-    this.getUsers();
+    this.profileUser = this.route.snapshot.params['email']
+    this.getUserData(this.profileUser);
   }
 
-  constructor(private userService:UsersService, private route: ActivatedRoute)  { 
+  constructor(private userService:UsersService, private route: ActivatedRoute, private postService: postsService)  { 
     const token = localStorage.getItem('Authorization');
     if(!token){
       return;
@@ -28,32 +27,29 @@ export class ProfilesListComponent implements OnInit{
     this.currentUser = tokenData.id;
   }
 
-
-  public get users():User[]{
-    return this.userService.users;
+  public get profileUserData():User{
+    return this.userService.currentUserData;
   }
 
   public get followingUsers():{follower:String, following: String}[]{
     return this.userService.followingUsers;
   }
 
-  visitProfile(email: string): void{
-    window.location.href = `/profile/${email}`;
+  public get userPosts():Post[]{
+    return this.postService.userPosts;
   }
 
-  isFollowing(email: string): boolean{
-    return this.followingUsers.some((user) => user.following === email);
-  }
-
-  getUsers():void{
-    this.userService.getUsers(this.searchTerm).subscribe({
+  public getUserData(email:string):void{
+    this.userService.getUserData(email).subscribe({
       next: (response: any) => {
-        this.userService.users = response.usersList;
+        console.log(response);
+        this.userService.currentUserData = response.user;
       },
       error: (error) => {
         console.log(error);
       }
     });
+
     this.userService.getFollowingUsers(this.currentUser).subscribe({
       next: (response: any) => {
         this.userService.followingUsers = response.follows;
@@ -62,12 +58,14 @@ export class ProfilesListComponent implements OnInit{
         console.log(error);
       }
     });
+
+    this.getUserPosts();
   }
 
   followUser(email: string): void{
     this.userService.followUser(this.currentUser, email).subscribe({
       next: (response: any) => {
-        this.getUsers();
+        this.getUserData(this.profileUser);
       },
       error: (error) => {
         console.log(error);
@@ -75,15 +73,32 @@ export class ProfilesListComponent implements OnInit{
     });
   }
 
+  isFollowing(email: string): boolean{
+    return this.followingUsers.some((user) => user.following === email);
+  }
+
   unfollowUser(email: string): void{
     this.userService.unfollowUser(this.currentUser, email).subscribe({
       next: (response: any) => {
-        this.getUsers();
+        this.getUserData(this.profileUser);
       },
       error: (error) => {
         console.log(error);
       }
     });
   }
+
+  getUserPosts():void{
+    this.postService.getUserPosts(this.profileUser).subscribe({
+      next: (response: any) => {
+        console.log(response);
+        this.postService.userPosts = response.post;
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    });
+  }
+
 
 }

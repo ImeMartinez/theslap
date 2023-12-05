@@ -16,6 +16,8 @@ export class UsersService {
     image: "",
   };
 
+  public currentUserPosts: any[] = [];
+
 
   constructor(private http : HttpClient){}
 
@@ -65,6 +67,7 @@ export class UsersService {
   getUserData(email:string): Observable <any> {
     return this.http.get(`http://localhost:8081/api/users/${email}`);
   }
+
     
 
 }

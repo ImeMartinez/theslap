@@ -35,6 +35,10 @@ export class TheRightNowComponent {
     });
   }
 
+  goToProfile(): void {
+    window.location.href = '/profile/' + this.lastPost.user ;
+  }
+
   getUserData(): void {
     console.log(this.lastPost.user);
     this.usersService.getUserData(this.lastPost.user).subscribe({

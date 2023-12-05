@@ -7,6 +7,7 @@ import { PicsPage } from './pics/pics.page';
 import { ProfilesPage } from './profiles/profiles.page';
 import { TunesPage } from './tunes/tunes.page';
 import { ClipsPage } from './clips/clips.page';
+import { ProfilePage } from './profile/profile.page';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path:"pics", component: PicsPage},
   {path:"profiles/:searchTerm", component: ProfilesPage},
   {path:"tunes", component: TunesPage},
-  {path:"clips", component: ClipsPage}
+  {path:"clips", component: ClipsPage},
+  {path:"profile/:email", component: ProfilePage}
 ];
 
 @NgModule({
