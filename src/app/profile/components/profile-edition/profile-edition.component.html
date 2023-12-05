@@ -5,7 +5,7 @@
     </div>
     <h2 class="name">{{ profileUserData.name + " " + profileUserData.lastName }}</h2>
     <br>
-    <button class="follow" (click)="followUser(profileUser)">Follow</button>
+    <button class="unfollow" (click)="deleteUser()">Delete account</button>
     <button class="follow" *ngIf="profileUserData.email != currentUser && !isFollowing(profileUser)"
       (click)="followUser(profileUser)">Follow</button>
     <button class="unfollow" *ngIf="profileUserData.email != currentUser && isFollowing(profileUser)"

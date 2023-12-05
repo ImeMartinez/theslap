@@ -20,7 +20,6 @@ export class HotPagesComponent {
   getHotUsers():void{
     this.usersService.getHotUsers().subscribe({
       next: (response: any) => {
-        console.log(response);
         this.usersService.hotUsers = response.usersList;
       },
       error: (error) => {

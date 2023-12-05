@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
+import { Injectable} from "@angular/core";
 import { User } from "../interfaces/user.interface";
 import { HttpClient } from "@angular/common/http";
-import { Observable, of } from "rxjs";
+import { Observable, map, of } from "rxjs";
 
 @Injectable({providedIn: "root"})
 export class UsersService {
@@ -9,6 +9,7 @@ export class UsersService {
   public users: User[] = [];
   public hotUsers: User[] = [];
   public followingUsers: {follower:String, following: String}[] = [];
+
   public currentUserData:User = {
     name: "",
     lastName: "",
@@ -39,24 +40,20 @@ export class UsersService {
   }
 
   registerUser(user : User): Observable <any> {
-    
-    if(this.checkUserExists(user.email)){
-      
-      return of({error: "El correo que ingresaste ya está registrado. Intenta con otro."});
-    }
 
+    
     return this.http.post("http://localhost:8081/api/users",user);
-      
   }
   
-  private checkUserExists(email: string): boolean {
-    let userExists = this.http.get(`http://localhost:8081/api/users/${email}`);
-    if(userExists){
-      return true;
-    }
-    else{
-      return false;
-    }
+  checkUserExists(email: string): Observable <boolean> {
+
+    return this.http.get(`http://localhost:8081/api/users/${email}`).pipe(map((response: any) => {
+      console.log(response)
+      if(response.user)
+        return true;
+      else
+        return false;
+    }));
       
   }
 
@@ -81,6 +78,14 @@ export class UsersService {
     return this.http.get(`http://localhost:8081/api/users/${email}`);
   }
 
+  deleteUser(email:string): Observable <any> {
+    return this.http.delete(`http://localhost:8081/api/users/${email}`);
+  }
+
+  getUsersData(users:String[]): Observable <any> {
+    console.log(users);
+    return this.http.get(`http://localhost:8081/api/users/data?users=${users}`);
+  }
     
 
 }

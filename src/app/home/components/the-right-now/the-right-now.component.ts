@@ -40,7 +40,6 @@ export class TheRightNowComponent {
   }
 
   getUserData(): void {
-    console.log(this.lastPost.user);
     this.usersService.getUserData(this.lastPost.user).subscribe({
       next: (response: any) => {
         console.log(response);

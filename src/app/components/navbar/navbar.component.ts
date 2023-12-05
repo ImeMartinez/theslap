@@ -40,5 +40,6 @@ export class NavbarComponent {
         this.router.onSameUrlNavigation = 'reload';
         this.router.navigate(['/profiles', ""]);
     }
+
   }
 }

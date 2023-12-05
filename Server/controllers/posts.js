@@ -1,5 +1,6 @@
 const { request, response } = require("express");
 const Post = require("../models/post");
+const Followers = require("../models/follower");
 
 
 const postSomething = (req = request, res = response) => {
@@ -89,11 +90,40 @@ const deletePost = (req = request, res = response) => {
     });
 }
 
+const followingPosts = async(req = request, res = response) => {
+    try {
+        const email = req.params.email;
+
+        followers = await Followers.find({ follower: email });;
+
+
+        if (!followers || followers.length === 0) {
+            return res.status(200).json({
+                msg: "No hay seguidores",
+                posts: []
+            });
+        }
+        const followingUsers = followers.map(follower => follower.following)
+        const posts = await Post.find({ user: { $in: followingUsers } }).sort({ _id: -1 });
+
+        res.status(200).json({
+            msg: "Post encontrado",
+            post: posts
+        });
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ msg: "Error " });
+    }
+
+}
+
 
 
 module.exports = {
     postSomething,
     getLastPost,
     getUserPost,
-    deletePost
+    deletePost,
+    followingPosts
 }

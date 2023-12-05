@@ -11,8 +11,8 @@ import { ProfilePage } from './profile/profile.page';
 
 
 const routes: Routes = [
-  {path:"home", component:HomePage},
   {path: "",redirectTo:"home", pathMatch:"full"},
+  {path:"home", component:HomePage},
   {path:"sign-in", component: SignInPage},
   {path:"register", component: RegisterPage},
   {path:"pics", component: PicsPage},

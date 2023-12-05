@@ -1,6 +1,7 @@
 const { request, response } = require("express");
 const User = require("../models/user");
 const { generateJWT } = require("../helpers/jwt");
+const user = require("../models/user");
 
 const usersGet = (req = request, res = response) => {
     const { searchTerm } = req.query;
@@ -35,12 +36,12 @@ const userExsit = (req = request, res = response) => {
 
     User.findOne({ email: email }).then((result) => {
         if (result) {
-            res.status(200).json({
+            return res.status(200).json({
                 msg: "User exist",
                 user: result
             });
         } else {
-            res.status(404).json({
+            return res.status(200).json({
                 msg: "User does not exist",
             });
         }
@@ -94,30 +95,44 @@ const userPost = (req = request, res = response) => {
 
 
 const userDelete = (req, res = response) => {
-    const id = req.params.id;
-    res.status(200).json({
-        msg: "Api DELETE users - controller",
-        result: `El usuario ${id} ha sido eliminado`
+    const email = req.params.email;
+    console.log(email);
+    User.deleteOne({ email: email }).then((result) => {
+        if (result) {
+            res.status(200).json({
+                msg: "User deleted",
+                user: result
+            });
+        } else {
+            res.status(404).json({
+                msg: "User does not exist",
+            });
+        }
+
+    }).catch((error) => {
+        console.log(error);
+        res.status(500).json({ msg: "Error" });
     });
 };
 
-const userPut = (req = request, res = response) => {
-    const id = req.body.id;
-    const id2 = req.params.id;
-    const id3 = req.query.id;
-    res.status(200).json({
-        msg: "Api PUT users - controller",
-        id,
-        id2,
-        id3
-    });
-};
 
-const userPatch = (req, res = response) => {
-    res.status(405).json({
-        msg: "Api PATCH users - controller"
+const getUsersData = (req = request, res = response) => {
+    const users = req.query.users;
+    const userEmailsArray = users.split(',');
+    console.log(userEmailsArray);
+
+    User.find({ email: { $in: userEmailsArray } }).then((result) => {
+        return res.status(200).json({
+            users: result
+        });
+
+    }).catch((error) => {
+        console.log(error);
+        res.status(500).json({ msg: "Error" });
     });
-};
+
+}
+
 
 
 
@@ -126,7 +141,6 @@ module.exports = {
     userExsit,
     userPost,
     userDelete,
-    userPut,
-    userPatch,
-    usersHotGet
+    usersHotGet,
+    getUsersData
 }

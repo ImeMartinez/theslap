@@ -1,30 +1,32 @@
-<div class="section-container"> 
-    <div class="post-container">
-        <h1 class="section-title">The New Stuff</h1>
-        <div class="post-info">
-            <div class="frame">
-                <iframe  width="500px" height="300px" src="https://www.youtube.com/embed/2ps7pKBv6WY?autoplay=1&mute=1" frameborder="0"></iframe>
-            </div>
-            <div class="text-post">
-                <h2>Brand new video</h2>
-                <p>Lorem ipsum dolor, 
-                    sit amet consectetur adipisicing elit.
-                     Placeat sunt voluptatem corporis! 
-                     Fuga omnis doloremque distinctio! 
-                     Sint voluptatibus exercitationem 
-                     reprehenderit, minus explicabo r
-                </p>
-                <p>See it now</p>
-            </div>
-            
+<div class="section-container">
+  <div class="title">The <span>New Stuff</span></div>
+  <div class="post-container">
+    <div class="post-info">
+      <div class="publication" *ngFor="let post of userPosts">
+        <div class="postPicture">
+          <img class="image" src="{{ giveMeUser(post.user)?.image }}" alt="">
         </div>
-        <div class="section-header">
-            <div class="change-buttons-container">
-                <button class="change-buttons"><</button>
-                <button class="change-buttons">></button>
-            </div>
+        <div class="arrow"></div>
+        <div class="postContainer">
+          <div class="postInfo">
+            <h2 class="name">
+              {{ giveMeUser(post.user)?.name + " " + giveMeUser(post.user)?.last_name }}
+            </h2>
+          </div>
+          <p>{{ post.body }}</p>
         </div>
-        
+        <div class="mood">
+          <p class="feeling">Mood</p>
+          <ngx-emoji class="emoji" emoji="{{ post.emoji.id }}" [size]="64">
+
+          </ngx-emoji>
+          <p class="feeling">
+            {{ post.feeling }}
+          </p>
+        </div>
+      </div>
     </div>
-    
+
+  </div>
+
 </div>

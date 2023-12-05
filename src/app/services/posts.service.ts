@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Post } from "../interfaces/post.interface";
 import { HttpClient } from "@angular/common/http";
-import { Observable, of } from "rxjs";
+import { Observable } from "rxjs";
 
 @Injectable({providedIn: "root"})
 export class postsService {
@@ -46,5 +46,11 @@ export class postsService {
   deletePost(post:Post): Observable <any> {
     return this.http.delete(`http://localhost:8081/api/posts`, {body: post});
   }
+  
+  getFollowingPosts(email: string): Observable <any> {
+    console.log(email);
+    return this.http.get(`http://localhost:8081/api/posts/following/${email}`);
+  }
+
 
 }

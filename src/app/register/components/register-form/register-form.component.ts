@@ -38,23 +38,42 @@ export class RegisterFormComponent {
       password: this.password,
       image: "https://as1.ftcdn.net/v2/jpg/03/39/45/96/1000_F_339459697_XAFacNQmwnvJRqe1Fe9VOptPWMUxlZP8.jpg"
     }
-    this.userService.registerUser(user).subscribe({
-      next: (response: any) => {
-        if(response.error){
-          Swal.fire({title: "Error", text: response.error, icon: "error", confirmButtonText: "Ok"}).then(() => {
+
+    this.userService.checkUserExists(user.email).subscribe({
+      next: (response) => {
+        console.log(response)
+        if(response){
+          Swal.fire({
+            title: "Error", 
+            text: "El correo que ingresaste ya está registrado. Intenta con otro", 
+            icon: "error", 
+            confirmButtonText: "Ok"
+          }).then(() => {
             return;
           });
-        
         }
         else{
-        Swal.fire({title: "Success", text: "Usuario registrado correctamente", icon: "success", confirmButtonText: "Ok"}).then(() => {
-          window.localStorage.setItem("Authorization", response.token);
-          window.location.href = "/";
-        });}
+          this.userService.registerUser(user).subscribe({
+            next: (response) => {
+              console.log(response.user)
+              
+              Swal.fire({title: "Success", text: "Usuario registrado correctamente", icon: "success", confirmButtonText: "Ok"}).then(() => {
+                window.localStorage.setItem("Authorization", response.token);
+                window.location.href = "/";
+              });
+            },
+            error: (error) => {
+              console.log(error);
+            }
+          });
+        }
       },
       error: (error) => {
-        console.log(error);
+        return error
       }
     });
+
+    
+   
   }}
 }

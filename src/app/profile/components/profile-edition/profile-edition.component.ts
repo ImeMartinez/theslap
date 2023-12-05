@@ -114,5 +114,38 @@ export class ProfileEditionComponent {
     });
   }
 
+  deleteUser(): void{
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if(result.isConfirmed){
+        this.deleteAccount();
+      }
+    })
+    
+  }
+
+  deleteAccount(): void{
+    this.userService.deleteUser(this.currentUser).subscribe({
+      next: (response: any) => {
+        console.log(response);
+        Swal.fire({title: 'User deleted', icon: 'success', confirmButtonText: 'Ok'}).then((result) => {
+          localStorage.removeItem('Authorization');
+          window.location.href = "/sign-in";
+        })
+        
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    });
+  }
+
 
 }
