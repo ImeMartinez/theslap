@@ -41,13 +41,13 @@ export class PostCollapseComponent {
   }
 
   public get currentUserData():User{
-    return this.usersService.currentUserData;
+    return this.usersService.currentUserLogged;
   }
 
   getUserData(): void {
     this.usersService.getUserData(this.email).subscribe({
       next: (response: any) => {
-        this.usersService.currentUserData = response.user;
+        this.usersService.currentUserLogged = response.user;
       },
       error: (error) => {
         console.log(error);

@@ -4,6 +4,7 @@ import { User } from 'src/app/interfaces/user.interface';
 import { UsersService } from 'src/app/services/user.service';
 import { Post } from 'src/app/interfaces/post.interface';
 import { postsService } from 'src/app/services/posts.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-profile-edition',
   templateUrl: './profile-edition.component.html',
@@ -93,6 +94,19 @@ export class ProfileEditionComponent {
       next: (response: any) => {
         console.log(response);
         this.postService.userPosts = response.post;
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    });
+  }
+
+  deletePost(post:Post): void{
+    this.postService.deletePost(post).subscribe({
+      next: (response: any) => {
+        console.log(response);
+        Swal.fire({title: 'Post deleted', icon: 'success', confirmButtonText: 'Ok'})
+        this.getUserPosts();
       },
       error: (error) => {
         console.log(error);

@@ -14,8 +14,20 @@ const usersGet = (req = request, res = response) => {
         console.log(error);
         res.status(500).json({ msg: "Error" });
     });
+};
 
+const usersHotGet = (req = request, res = response) => {
+    const { searchTerm } = req.query;
 
+    User.find({ name: RegExp(searchTerm) }).sort({ _id: -1 }).limit(6).then((result) => {
+        res.status(200).json({
+            usersList: result
+        });
+
+    }).catch((error) => {
+        console.log(error);
+        res.status(500).json({ msg: "Error" });
+    });
 };
 
 const userExsit = (req = request, res = response) => {
@@ -115,5 +127,6 @@ module.exports = {
     userPost,
     userDelete,
     userPut,
-    userPatch
+    userPatch,
+    usersHotGet
 }

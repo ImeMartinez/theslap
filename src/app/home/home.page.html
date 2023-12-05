@@ -3,10 +3,12 @@
 </div>
 <app-post-collapse *ngIf="islogged"></app-post-collapse>
 <app-hot-pages *ngIf="islogged"></app-hot-pages>
-<div *ngIf="islogged" class="middle-section-container" style="display: flex; justify-content: center;">
-  <div>
+<div *ngIf="islogged" class="middle-section-container">
+  <div class="center">
     <app-fun-facts></app-fun-facts>
     <app-the-new-stuff></app-the-new-stuff>
   </div>
-  <app-the-right-now></app-the-right-now>
+  <div class="aside">
+    <app-the-right-now></app-the-right-now>
+  </div>
 </div>

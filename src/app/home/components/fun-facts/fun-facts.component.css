@@ -1,19 +1,35 @@
-.section-container{
-    width: 900px;
+.section-container {
+    width: 100%;
     margin-top: 15px;
 }
 
-.title{
+.title {
     background-color: #FDE74C;
-    width: 200px;
-    padding: 15px;
+    margin-right: auto;
+    width: 170px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
     border-radius: 15px 15px 0px 0px;
-
 }
 
-.fact-text{
+span {
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    margin-left: 5px;
+}
+
+.fact-text {
+    border: 3px solid #FDE74C;
     background-color: #84BCDA;
+    background: linear-gradient(0deg, #84BCDA, #a8d1e7);
+    font-weight: bold;
+    font-style: italic;
+    display: flex;
+    align-items: center;
     height: 80px;
     padding: 15px;
+    width: 100%;
     border-radius: 0px 15px 15px 15px;
 }

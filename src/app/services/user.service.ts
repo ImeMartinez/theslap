@@ -7,8 +7,17 @@ import { Observable, of } from "rxjs";
 export class UsersService {
 
   public users: User[] = [];
+  public hotUsers: User[] = [];
   public followingUsers: {follower:String, following: String}[] = [];
   public currentUserData:User = {
+    name: "",
+    lastName: "",
+    email: "",
+    password: "",
+    image: "",
+  };
+
+  public currentUserLogged:User = {
     name: "",
     lastName: "",
     email: "",
@@ -23,6 +32,10 @@ export class UsersService {
 
   getUsers(searchTerm:string): Observable <any> {
     return this.http.get(`http://localhost:8081/api/users?searchTerm=${searchTerm}`);
+  }
+
+  getHotUsers(): Observable <any> {
+    return this.http.get("http://localhost:8081/api/users/hot");
   }
 
   registerUser(user : User): Observable <any> {

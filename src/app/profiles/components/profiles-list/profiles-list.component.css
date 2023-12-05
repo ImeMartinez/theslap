@@ -6,7 +6,6 @@
     justify-content: center;
     border-radius: 15px;
     margin: 20px auto;
-    background-color: #99c9e3;
     padding: 20px 0;
 }
 
@@ -14,30 +13,41 @@
     width: 85%;
     display: flex;
     margin: 10px auto;
-    height: 75px;
+    height: auto;
     justify-content: space-between;
     border-radius: 25px;
     color: white;
-    background-color: #A790A5;
+    background-image: url("https://png.pngtree.com/background/20230617/original/pngtree-dark-background-illuminated-by-neon-soundwave-and-musical-note-rendered-in-picture-image_3700262.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     border: 2px solid #978095;
 }
 
 .content {
-    width: 30%;
+    width: 90%;
     display: flex;
-    align-items: center;
+}
+
+.userInfo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .image-container {
-    width: 55px;
-    height: 55px;
-    margin-left: 10px;
-    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border-radius: 15px;
     overflow: hidden;
+    position: relative;
 }
 
 img {
     object-fit: cover;
+    position: absolute;
     width: 100%;
     height: auto;
     object-position: center;
@@ -47,11 +57,20 @@ img {
     font-size: 20px;
     font-weight: bold;
     margin-left: 10px;
+    margin-top: 10px;
+    width: auto;
+}
+
+.email {
+    font-size: 20px;
+    margin-left: 10px;
+    font-size: smaller;
+    font-style: italic;
     width: auto;
 }
 
 .follow {
-    width: 35%;
+    width: 30%;
     height: 35px;
     font-size: 20px;
     display: flex;
@@ -59,14 +78,15 @@ img {
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    margin-right: 10px;
+    margin-left: 10px;
     outline: none;
     border-radius: 50px;
-    margin-left: auto;
     background-color: orange;
+    margin-top: 10px;
     color: white;
     border: none;
     transition: ease-in-out 200ms;
+    z-index: 1;
 }
 
 .follow:hover {
@@ -75,7 +95,7 @@ img {
 }
 
 .unfollow {
-    width: 35%;
+    width: 30%;
     height: 35px;
     font-size: 20px;
     display: flex;
@@ -83,11 +103,11 @@ img {
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    margin-right: 10px;
+    margin-left: 10px;
     outline: none;
     border-radius: 50px;
-    margin-left: auto;
     background-color: indianred;
+    margin-top: 10px;
     color: white;
     border: none;
     transition: ease-in-out 200ms;

@@ -1,8 +1,25 @@
-.section-container{
+.section-container {
     width: 100%;
     background-color: black;
-    height: 150px;
-    color:white;
+    height: auto;
+    color: white;
+    padding: 20px;
+    display: flex;
+    margin-top: auto;
+    margin-bottom: 0px;
+}
+
+.materia {
     text-align: center;
     padding: 20px;
+    margin: auto;
+    font-size: 20pt;
+    font-weight: bold;
+    width: 30%;
+}
+
+.integrantes {
+    margin: auto;
+    text-align: center;
+    width: 30%;
 }

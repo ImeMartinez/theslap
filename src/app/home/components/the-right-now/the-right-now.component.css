@@ -1,15 +1,16 @@
-.section-container{
+.section-container {
     background-color: #061846;
-    width: 300px;
+    width: 100%;
     height: 600px;
-    margin: 20px;
-    border-radius: 10px;
+    margin: none;
+    ;
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.userinfo{
+.userinfo {
     background-color: #E1F8FF;
     margin: 20px 20px 0px 20px;
     width: 260px;
@@ -18,53 +19,53 @@
     display: flex;
 }
 
-.head-img{
+.head-img {
     width: 280px;
     margin: 10px;
 }
 
-.user-img{
+.user-img {
     width: 100px;
     height: 100px;
     margin: 15px;
     border-radius: 15px;
 }
 
-.user-data{
+.user-data {
     margin-top: 20px;
 }
 
-.date{
+.date {
     font-size: small;
     margin-bottom: 5px;
 }
 
-.username{
+.username {
     font-size: 20pt;
     color: #061846;
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-.update{
+.update {
     font-size: medium;
     color: #061846;
     font-weight: bold;
 }
 
-.post-info{
-    background-color: #E1F8FF ;
+.post-info {
+    background-color: #E1F8FF;
     margin: 0px 20px 0px 20px;
     width: 260px;
     height: 180px;
 }
 
-.post{
+.post {
     padding: 0px 15px 15px 15px;
 }
 
-.mood-container{
-    background-color: #E1F8FF ;
+.mood-container {
+    background-color: #E1F8FF;
     margin: 0px 0px 20px 20px;
     width: 260px;
     border-radius: 0px 0px 10px 10px;
@@ -74,13 +75,13 @@
     justify-content: center;
 }
 
-.mood-title{
+.mood-title {
     font-size: larger;
     color: #061846;
     font-weight: bold;
 }
 
-.mood{
+.mood {
     font-size: larger;
     color: #AF2E26;
     font-weight: bold;

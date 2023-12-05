@@ -5,6 +5,7 @@
     </div>
     <h2 class="name">{{ profileUserData.name + " " + profileUserData.lastName }}</h2>
     <br>
+    <button class="follow" (click)="followUser(profileUser)">Follow</button>
     <button class="follow" *ngIf="profileUserData.email != currentUser && !isFollowing(profileUser)"
       (click)="followUser(profileUser)">Follow</button>
     <button class="unfollow" *ngIf="profileUserData.email != currentUser && isFollowing(profileUser)"
@@ -12,21 +13,28 @@
   </div>
   <div class="publications-section">
     <div class="publication" *ngFor="let post of userPosts">
-      <div class="postInfo">
-        <div class="postPicture">
-          <img class="image" src="{{ profileUserData.image }}" alt="">
-        </div>
-        <h2 class="name">
-          {{ profileUserData.name + " " + profileUserData.lastName }}
-        </h2>
+      <div class="trash" (click)="deletePost(post)"><img src="assets/trash.svg" alt="">
       </div>
-      <p>{{ post.body }}</p>
-      <div class="feeling">Feeling:</div>
+      <div class="arrow"></div>
+      <div class="postContainer">
+        <div class="postInfo">
+          <div class="postPicture">
+            <img class="image" src="{{ profileUserData.image }}" alt="">
+          </div>
+          <h2 class="name">
+            {{ profileUserData.name + " " + profileUserData.lastName }}
+          </h2>
+        </div>
+        <p>{{ post.body }}</p>
+      </div>
       <div class="mood">
-        {{ post.feeling }}
-        <ngx-emoji class="emoji" emoji="{{ post.emoji.id }}" [size]="24">
+        <p class="feeling">Mood</p>
+        <ngx-emoji class="emoji" emoji="{{ post.emoji.id }}" [size]="64">
 
         </ngx-emoji>
+        <p class="feeling">
+          {{ post.feeling }}
+        </p>
       </div>
     </div>
   </div>

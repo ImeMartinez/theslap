@@ -42,6 +42,9 @@ export class postsService {
   getUserPosts(email: string): Observable <any> {
     return this.http.get(`http://localhost:8081/api/posts/${email}`);
   }
-    
+
+  deletePost(post:Post): Observable <any> {
+    return this.http.delete(`http://localhost:8081/api/posts`, {body: post});
+  }
 
 }

@@ -1,18 +1,21 @@
 <div class="list-container">
   <div class="profile" *ngFor="let user of users">
-    <div class="content" (click)="visitProfile(user.email)">
-      <div class="image-container">
+    <div class="content">
+      <div class="image-container" (click)="visitProfile(user.email)">
         <img src="{{ user.image }}" alt="">
       </div>
-      <div class="name">
-        {{ user.name + " " + user.lastName }}
+      <div class="userInfo">
+        <div class="name" (click)="visitProfile(user.email)">
+          {{ user.name + " " + user.lastName }}
+        </div>
+        <div class="email" (click)="visitProfile(user.email)">
+          {{ user.email }}
+        </div>
+        <button *ngIf="(currentUser != user.email && !isFollowing(user.email)) " (click)="followUser(user.email)"
+          class="follow">Follow</button>
+        <button *ngIf="(currentUser != user.email && isFollowing(user.email)) " (click)="unfollowUser(user.email)"
+          class="unfollow">Unfollow</button>
       </div>
-    </div>
-    <div class="content">
-      <button *ngIf="(currentUser != user.email && !isFollowing(user.email)) " (click)="followUser(user.email)"
-        class="follow">Follow</button>
-      <button *ngIf="(currentUser != user.email && isFollowing(user.email)) " (click)="unfollowUser(user.email)"
-        class="unfollow">Unfollow</button>
     </div>
   </div>
 </div>

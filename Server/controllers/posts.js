@@ -64,9 +64,36 @@ const getUserPost = (req = request, res = response) => {
 
 }
 
+const deletePost = (req = request, res = response) => {
+    const post = req.body;
+
+    if (!post.user || !post.body || !post.feeling || !post.emoji) {
+        res.status(404).json({ msg: "Missing Data" });
+        return;
+    }
+    Post.deleteOne(post).then((result) => {
+        if (result) {
+            return res.status(200).json({
+                msg: "Post eliminado",
+                post: result
+            });
+        } else {
+            return res.status(404).json({
+                msg: "Post no encontrado",
+                post: result
+            });
+        }
+    }).catch((error) => {
+        console.log(error);
+        res.status(500).json({ msg: "Error " });
+    });
+}
+
+
 
 module.exports = {
     postSomething,
     getLastPost,
-    getUserPost
+    getUserPost,
+    deletePost
 }

@@ -1,4 +1,24 @@
-.middle-section-container{
+.middle-section-container {
     display: flex;
     justify-content: center;
+    width: 100%;
+    margin: auto;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    margin-right: 0px;
+    margin-left: auto;
+    width: 70%;
+    margin-bottom: 30px;
+}
+
+.aside {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 0px;
+    margin-right: auto;
+    width: 25%;
+    padding: none;
 }
